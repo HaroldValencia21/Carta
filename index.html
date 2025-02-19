@@ -18,8 +18,8 @@
         }
         .container {
             position: relative;
-            width: 250px;
-            height: 180px;
+            width: 300px;
+            height: 220px;
             perspective: 1000px;
         }
         .envelope {
@@ -48,19 +48,20 @@
         }
         .letter {
             position: absolute;
-            width: 80%;
-            min-height: 60%;
+            width: 85%;
+            min-height: 55%;
             background: #fff8e1;
             border-radius: 5px;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 10px;
-            font-size: 14px;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: bold;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
             opacity: 0;
-            transform: translateY(100%) scale(0.8);
+            transform: translateY(50%) scale(0.8);
             transition: opacity 1s ease-in-out, transform 1s ease-in-out;
             word-wrap: break-word;
         }
@@ -69,16 +70,17 @@
         }
         .envelope.open .letter {
             opacity: 1;
-            transform: translateY(-20%) scale(1);
+            transform: translateY(0) scale(1);
         }
         @media (max-width: 480px) {
             .container {
-                width: 180px;
-                height: 130px;
+                width: 250px;
+                height: 180px;
             }
             .letter {
-                font-size: 12px;
-                padding: 8px;
+                font-size: 14px;
+                padding: 12px;
+                transform: translateY(20%) scale(1);
             }
         }
     </style>
