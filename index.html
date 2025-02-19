@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta para ti 💌</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .container {
+            position: relative;
+            width: 250px;
+            height: 180px;
+            perspective: 1000px;
+        }
+        .envelope {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: #e57373;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            cursor: pointer;
+            flex-direction: column;
+        }
+        .flap {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 50%;
+            background: #d32f2f;
+            clip-path: polygon(0 0, 50% 100%, 100% 0);
+            transform-origin: top;
+            transition: transform 0.8s ease-in-out;
+        }
+        .letter {
+            position: absolute;
+            width: 80%;
+            min-height: 60%;
+            background: #fff8e1;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translateY(100%) scale(0.8);
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+            word-wrap: break-word;
+        }
+        .envelope.open .flap {
+            transform: rotateX(180deg);
+        }
+        .envelope.open .letter {
+            opacity: 1;
+            transform: translateY(-20%) scale(1);
+        }
+        @media (max-width: 480px) {
+            .container {
+                width: 180px;
+                height: 130px;
+            }
+            .letter {
+                font-size: 12px;
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" onclick="openEnvelope()">
+        <div class="envelope">
+            <div class="flap"></div>
+            <div class="letter">Mi amor, cada día a tu lado es un regalo. Eres mi sol en los días nublados, mi paz en los momentos difíciles y la razón de mi sonrisa. Gracias por llenar mi vida de amor y felicidad. Te amo con todo mi corazón. ❤️</div>
+        </div>
+    </div>
+
+    <script>
+        function openEnvelope() {
+            let envelope = document.querySelector('.envelope');
+            envelope.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
